@@ -5,8 +5,10 @@
   "main": "app.js",
   "scripts": {
     "sass:w": "sass client/styles/scss/base.scss client/styles/dist/styles.css --watch --load-path=node_modules/bootstrap/scss/",
-    "server": "pm2 start app.js",
-    "sync:aws": "rsync -rvP -e ssh --exclude=node_modules  --exclude=.git --exclude=sslcert ./ ubuntu@18.184.122.176:/home/ubuntu/bellfa.art"
+    "server:dev": "pm2-dev start app.js",
+    "build": "docker build . -t mihago/bellfa.art ",
+    "push": "docker push mihago/bellfa.art:latest",
+    "publish": "run-s build push"
   },
   "author": "",
   "license": "ISC",
@@ -15,10 +17,11 @@
     "bootstrap-icons": "^1.10.3",
     "express": "^4.18.2",
     "express-https-redirect": "^1.0.0",
-    "pm2": "^5.2.2",
     "serve-favicon": "^2.5.0"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "pm2": "^5.2.2",
     "sass": "^1.57.1"
   }
 }
