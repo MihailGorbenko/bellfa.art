@@ -29,7 +29,8 @@ function start() {
         https.createServer({
             
             key: fs.readFileSync('./sslcert/privkey.pem'),
-            cert: fs.readFileSync('./sslcert/fullchain.pem')
+            cert: fs.readFileSync('./sslcert/cert.pem'),
+            ca: fs.readFileSync('./sslcert/chain.pem'),
         }, app).listen(HTTPS_PORT, () => { console.log(`Server listening port ${HTTPS_PORT}`) })
 
     } catch (e) {
