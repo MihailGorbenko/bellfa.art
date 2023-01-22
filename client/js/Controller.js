@@ -9,14 +9,9 @@ export default class Controller {
 
         document.addEventListener('DOMContentLoaded', () => {
             this.view.init()
-        })
 
-        if (window.DeviceOrientationEvent) {
-            window.addEventListener('deviceorientation', (e) => {
-                view.onGyroEvent(e)
-            })
-        }
-        
+        })
+   
         
     }
 

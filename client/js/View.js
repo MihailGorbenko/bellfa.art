@@ -7,7 +7,7 @@ export default class View {
     personShift = 10
     personScrollShift = 3
     surroundScrollShift = 6
-    gyroEventShiftRate = 2
+    gyroEventShiftRate = 1.5
     animSpeed = 0.05
     positionX = 0
     positionY = 0
@@ -38,6 +38,11 @@ export default class View {
             this.contentSection = document.querySelector('.content')
             this.navigation = document.querySelector('nav')
             this.navbarToggle = document.querySelector('.navbar-toggler')
+            this.navLinks = document.querySelectorAll('.nav-link')
+            this.navMenu = document.getElementById('collapse-menu')
+            
+
+
 
             this.parallax.onmousemove = (e) => {
                 this.onMouseEvent(e)
@@ -48,10 +53,25 @@ export default class View {
                 
             }
 
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('deviceorientation', (e) => {
+                    this.onGyroEvent(e)
+                })
+            }
+
 
             new IntersectionObserver(this.intersectionCallback, {
                 threshold: this.tresholdSet
             }).observe(this.contentSection)
+
+            this.navLinks.forEach((l) => {
+                     l.addEventListener('click', () => { 
+                        if(document.body.clientWidth <= 575){
+                            new bootstrap.Collapse(this.navMenu)
+                        }
+                                   
+                    })
+            })
 
             this.runParalaxEffet()
     }
