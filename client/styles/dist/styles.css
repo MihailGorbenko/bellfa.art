@@ -10798,14 +10798,14 @@ body {
 }
 
 .images-parallax-ambient {
-  background: url(../../images/clouds.jpg) no-repeat;
+  background: url(../../images/parallax/clouds.jpg) no-repeat;
   top: 0;
   background-size: cover;
   background-position: top;
 }
 
 .images-parallax-surround {
-  background: url(../../images/mountains.png) top/cover no-repeat;
+  background: url(../../images/parallax/mountains.png) top/cover no-repeat;
   top: 15%;
   background-size: cover;
   background-position: top;
@@ -10813,7 +10813,7 @@ body {
 }
 
 .images-parallax-person {
-  background: url(../../images/human.png) top/cover no-repeat;
+  background: url(../../images/parallax/human.png) top/cover no-repeat;
   top: 45%;
   background-size: cover;
   background-position: top;
@@ -10834,6 +10834,17 @@ body {
   .parallax-title {
     font-size: 36px;
   }
+}
+#gallery .content-title {
+  text-align: center;
+  margin-bottom: 1em;
+}
+#gallery .carousel {
+  box-shadow: 0 0 18px 2px rgba(255, 255, 255, 0.219);
+}
+#gallery .carousel .carousel-item img {
+  min-height: 300px;
+  max-height: 600px;
 }
 
 /*# sourceMappingURL=styles.css.map */
